@@ -17,6 +17,7 @@
 }
 
 body{
+     width: 100vw;
      overflow-x: hidden;
 }
 
@@ -33,6 +34,50 @@ body{
 
 .title span{
      border-bottom: 4px solid var(--yellow);
+}
+
+/* Mobile Menu */
+.mobile__menu{
+     display: none;
+     position: absolute;
+     background-color: rgba(0, 0, 0, 0.4);
+     width: 100vw;
+     height: 100vh;
+     opacity: 0;
+     transition: 0.3s ease;
+     overflow: hidden;
+}
+
+.menu__close{
+     padding: 20px 0;
+     margin: 0 auto;
+     width: 90%;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     font-size: 24px;
+
+}
+
+
+.list__menu{
+     background-color: var(--bg);
+     display: flex;
+     flex-direction: column;
+     padding-bottom: 24px;
+}
+
+.list__menu a{
+     margin-left: 7%;
+     color: var(--black);
+     text-decoration: none;
+     font-size: 16px;
+     margin-right: 24px;
+     transition: 0.3s ease;
+}
+
+.list__menu a:hover{
+     color: var(--yellow);
 }
 
 /* NavBar */
@@ -105,9 +150,6 @@ nav a:last-child{
 
 .nav__part i:last-child{
      margin-left: 16px;
-     padding: 4px;
-     border: 1px solid black;
-     border-radius: 4px;
      display: none;
 }
 
@@ -115,7 +157,8 @@ nav a:last-child{
      outline: 0;
      border: 0;
      border-radius: 35px;
-     padding: 10px;
+     padding: 10px 50px 10px 20px;
+     margin-right: 24px;
 }
 
 /* Header */
@@ -157,6 +200,7 @@ header * {
 }
 
 .header__container h1{
+     background-color: var(--bg);
      color: var(--brown);
      font-weight: 600;
      font-size: 72px;
@@ -233,6 +277,7 @@ header * {
 .bg__second__item{
      opacity: 0.9;
      margin-top: -90px;
+     margin-left: 30px;
      position: absolute;
 }
 
@@ -286,6 +331,35 @@ header * {
 .product__img{
      width: 90%;
      margin: 0 auto;
+     position: relative;
+}
+
+.rating__outter{
+     top: 8px;
+     left: 10px;
+     position: absolute;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     border-radius: 27px;
+     background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.4) 100%);
+     backdrop-filter: blur(4px);
+}
+
+.rating{
+     padding: 6px 10px;
+     margin: 4px;
+     border-radius: 50px;
+     font-weight: 700;
+     font-size: 14px;
+     line-height: 21px;
+     letter-spacing: 0.04em;
+     color: var(--brown);
+     background-color: #fff;
+}
+
+.fa-star{
+     color: var(--yellow);
 }
 
 .product__img img{
@@ -538,7 +612,16 @@ header * {
           height: 280px;
           margin-top: 200px;
      }
-     
+     .rating__outter{
+          top: 4px;
+          left: 6px;
+     }
+     .rating{
+          font-size: 12px;
+          line-height: 16px;
+          margin: 3px;
+          padding: 4px 7px;
+     }
 }
 
 @media screen and (max-width: 768px) {
@@ -636,7 +719,11 @@ header * {
           line-height: 36px;
      }    
      nav{
+          z-index: 50;
           padding: 20px 0;
+     }
+     .mobile__menu{
+          display: block;
      }
      .header__container *{
           position: relative;
@@ -684,19 +771,19 @@ header * {
      }
 
      .product__title{
-          font-size: 24px;
-          line-height: 36px;
+          font-size: 18px;
+          line-height: 24px;
      }
      .product__buy p{
-          font-size: 14px;
-          line-height: 21px;
+          font-size: 12px;
+          line-height: 16px;
      }
      .product__buy div{
-          width: 40px;
-          height: 40px;
+          width: 30px;
+          height: 30px;
      }
      .product__buy i{
-          font-size: 18px;
+          font-size: 14px;
      }
      .bg__products{
           border-radius: 40px;
@@ -759,21 +846,6 @@ header * {
           flex-direction: column;
      }
 
-     .product__title{
-          font-size: 18px;
-          line-height: 24px;
-     }
-     .product__buy p{
-          font-size: 12px;
-          line-height: 16px;
-     }
-     .product__buy div{
-          width: 30px;
-          height: 30px;
-     }
-     .product__buy i{
-          font-size: 14px;
-     }
      .bg__products{
           border-radius: 40px;
           margin-top: 66px;
