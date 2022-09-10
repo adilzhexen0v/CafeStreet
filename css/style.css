@@ -733,10 +733,7 @@ header * {
           z-index: 1;
      }
      .bg__item{
-          opacity: 0.8;
-          width: 360px;
-          margin-right: -120px;
-          margin-top: -16px;
+          display: none;
      }
      .header__container h1{
           font-size: 28px;
@@ -803,9 +800,7 @@ header * {
 }
 
 @media screen and (max-width:320px) {
-     .bg__item{
-          display: none;
-     }
+
      .header__container{
           padding-top: 30px;
           padding-bottom: 12px;
