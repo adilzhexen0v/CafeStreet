@@ -750,7 +750,7 @@ header * {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding: 30px 5% 20px;
+          padding: 20px 5%;
           width: 90%;
           background: var(--bg);
      }
@@ -761,7 +761,7 @@ header * {
           background-color: rgba(0, 0, 0, 0.4);
           width: 100vw;
           height: 100vh;
-          opacity: 1;
+          opacity: 0;
           transition: 0.3s ease;
           overflow: hidden;
           top: 0;
@@ -789,7 +789,7 @@ header * {
           color: var(--yellow);
      }
      header{
-          padding-top: 90px;
+          padding-top: 70px;
      }
      .nav__border{
           border-bottom: 1px solid rgba(0, 0, 0, 0.2);
