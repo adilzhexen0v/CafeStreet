@@ -1107,7 +1107,7 @@ header * {
      .product{
           margin: 5px;
      }
-     .product__outter:nth-child(3){
+     #popular .product__outter:nth-child(3){
           margin: 0;
      }
      .products{
