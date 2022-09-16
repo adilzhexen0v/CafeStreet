@@ -662,7 +662,7 @@ header * {
      top: 0;
      width: 100vw;
      height: 100vh;
-     z-index: 1000;
+     z-index: 999;
      background-color: rgba(0, 0, 0, 0.5);
      align-items: center;
      justify-content: center;
@@ -1032,7 +1032,7 @@ header * {
           background: var(--bg);
      }
      .mobile__menu{
-          display: none;
+          display: flex;
           justify-content: flex-end;
           position: fixed;
           background-color: rgba(0, 0, 0, 0.4);
@@ -1042,7 +1042,6 @@ header * {
           transition: 0.3s ease;
           overflow: hidden;
           top: 0;
-          z-index: 1000;
      }
      .list__menu{
           height: 100%;

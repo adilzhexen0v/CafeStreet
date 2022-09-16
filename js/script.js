@@ -3,17 +3,18 @@ const mobileMenuClose = document.querySelector('.fa-times');
 const mobileMenuBg = document.querySelector('.mobile__menu');
 
 function openMenu(){
+     console.log('click');
      mobileMenuBg.style.display = 'flex';
      setTimeout(function(){
-          mobileMenuBg.style.cssText = 'opacity: 1; z-index: 1000';
+          mobileMenuBg.style.cssText = 'opacity: 1; z-index: 1001';
      }, 1);
 }
 
 function closeMenu(){
+     mobileMenuBg.style.cssText = 'opacity: 0; z-index: -1';
      setTimeout(function(){
-          mobileMenuBg.style.cssText = 'opacity: 0; z-index: -1';
+          mobileMenuBg.style.display = 'none';
      }, 300);
-     mobileMenuBg.style.display = 'none';
 }
 
 mobileMenuBtn.addEventListener('click', openMenu);
