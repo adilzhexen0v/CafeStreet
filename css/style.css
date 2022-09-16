@@ -3,6 +3,7 @@
 :root{
      --black: #000;
      --yellow: #FF912B;
+     --light--yellow: #FFCB7C;
      --light--orange: #F9D9AA;
      --brown: #2F2105;
      --bg: #F6EBDA;
@@ -34,6 +35,10 @@ body{
 
 .title span{
      border-bottom: 4px solid var(--yellow);
+}
+
+.white{
+     color: #fff;
 }
 
 /* Mobile Menu */
@@ -584,12 +589,114 @@ header * {
 }
 
 /* Products */
-
-#products{
+#products {
      padding: 120px 0;
 }
-#products .title {
-     padding-bottom: 40px;
+
+/* Subscribe */
+#subscribe{
+     margin-bottom: 120px;
+}
+
+#subscribe .container{
+     padding: 130px 0;
+     background: url(../img/subscribe.png);
+     background-size: cover;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     border-radius: 24px;
+}
+
+#subscribe form{
+     margin-top: 32px;
+     position: relative;
+     width: 100%;
+     display: flex;
+     justify-content: center;
+}
+
+#subscribe input[type="text"]{
+     width: 40%;
+     padding: 16px;
+     border-radius: 42px;
+     font-weight: 700;
+     font-size: 16px;
+     outline: 0;
+     border: 0;
+     text-indent: 16px;
+     transition: 0.2s ease;
+}
+
+#subscribe input[type="submit"]{
+     position: absolute;
+     right: 29.5%;
+     top: 0;
+     margin-top: 6px;
+     padding: 12px 32px;
+     border-radius: 32px;
+     color: white;
+     background: var(--brown);
+     outline: 0;
+     border: 0;
+     transition: 0.25s ease;
+}
+
+#subscribe input[type="submit"]:hover{
+     cursor: pointer;
+     background-color: var(--yellow);
+}
+
+/* PopUps */
+.popup{
+     display: none;
+     position: fixed;
+     top: 0;
+     width: 100vw;
+     height: 100vh;
+     z-index: 1000;
+     background-color: rgba(0, 0, 0, 0.5);
+     align-items: center;
+     justify-content: center;
+}
+
+.popup__container{
+     margin-top: -100vw;
+     width: 40%;
+     background: var(--bg) url(../img/bg__about__us.png);
+     border: 5px solid white;
+     border-radius: 24px;
+     padding: 20px 32px;
+     transition: 0.6s ease;
+}
+
+.popup__container .title{
+     font-size: 32px;
+}
+
+.popup__container .para{
+     font-size: 20px;
+     line-height: 30px;
+     margin-bottom: 12px;
+}
+
+.popup__close{
+     color: white;
+     height: 42px;
+     width: 100px;
+     margin: 0 auto;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     border-radius: 20px;
+     background: var(--brown);
+     transition: 0.2s ease;
+}
+
+.popup__close:hover{
+     cursor: pointer;
+     background: var(--yellow);
 }
 
 @media screen and (max-width: 1440px) {
@@ -708,6 +815,19 @@ header * {
      /* Products */
      #products{
           padding: 100px 0;
+     }
+     /* Subscribe */
+     #subscribe{
+          margin-bottom: 100px;
+     }
+     /* Popup*/
+     .popup__container .title{
+          font-size: 24px;
+     }
+     .popup__container .para{
+          font-size: 16px;
+          line-height: 24px;
+          margin-bottom: 8px;
      }
 }
 
@@ -862,6 +982,30 @@ header * {
      }
      #products .title{
           padding-bottom: 30px;
+     }
+     /* Subscribe */
+     #subscribe{
+          margin-top: 20px;
+     }
+     #subscribe .container{
+          padding: 100px 0;
+     }
+     #subscribe input[type="text"]{
+          width: 50%;
+     }
+     #subscribe input[type="submit"]{
+          right: 24%;
+     }
+     /* Popup*/
+     .popup__container .title{
+          font-size: 24px;
+          line-height: 36px;
+          margin-bottom: 8px;
+     }
+     .popup__container .para{
+          font-size: 16px;
+          line-height: 24px;
+          margin-bottom: 8px;
      }
 }
 
@@ -1059,6 +1203,61 @@ header * {
      #products .products{
           grid-template-columns: repeat(2, 1fr);
      }
+     /* Subscribe */
+     #subscribe{
+          margin-top: 30px;
+          margin-bottom: 60px;
+     }
+     #subscribe .container{
+          padding: 70px 0;
+     }
+     #subscribe .title{
+          margin: 0 20px;
+          font-size: 24px;
+          text-align: center;
+     }
+     #subscribe input[type="text"]{
+          font-size: 14px;
+          width: 60%;
+     }
+     #subscribe input[type="submit"]{
+          right: 19%;
+          font-size: 14px;
+          top: -2px;
+     }
+     /* Popup*/
+     .popup__container{
+          width: 60%;
+     }
+     .popup__container .title{
+          font-size: 20px;
+          line-height: 30px;
+          margin-bottom: 8px;
+     }
+     .popup__container .para{
+          font-size: 14px;
+          line-height: 21px;
+          margin-bottom: 8px;
+     }
+     .popup__close{
+          width: 80px;
+          height: 32px;
+          font-size: 14px;
+     }
+}
+
+@media screen and (max-width: 600px) {
+     /* Subscribe */
+     #subscribe .title{
+          font-size: 24px;
+          text-align: center;
+     }
+     #subscribe input[type="text"]{
+          width: 80%;
+     }
+     #subscribe input[type="submit"]{
+          right: 8%;
+     }
 }
 
 @media screen and (max-width: 555px) {
@@ -1190,10 +1389,12 @@ header * {
      #products .title{
           padding-bottom: 20px;
      }
+     #products .container{
+          width: 90%;
+     }
 }
 
 @media screen and (max-width: 400px) {
-
      .about__us__item:first-child{
           margin-left: -15%;
      }
@@ -1270,5 +1471,9 @@ header * {
      /* Products */
      #products{
           padding: 30px 0;
+     }
+     /* Subscribe */
+     #subscribe input[type="submit"]{
+          padding: 12px 20px;
      }
 }
