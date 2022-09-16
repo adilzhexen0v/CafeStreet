@@ -22,6 +22,10 @@ body{
      overflow-x: hidden;
 }
 
+*::selection{
+     background-color: var(--light--yellow);
+}
+
 .container{
      width: 80%;
      margin: 0 auto;
@@ -591,6 +595,9 @@ header * {
 /* Products */
 #products {
      padding: 120px 0;
+}
+#products .title{
+     margin-bottom: 16px;
 }
 
 /* Subscribe */
