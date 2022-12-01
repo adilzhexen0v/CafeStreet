@@ -1,0 +1,28 @@
+let products;products=localStorage.getItem("cart")?JSON.parse(localStorage.getItem("cart")):[];const cartList=document.querySelector(".cart__list"),addToCartBtns=document.querySelectorAll(".product__buy div"),cart=document.querySelector(".cart"),decreaseBtns=document.querySelectorAll(".decrease"),increaseBtns=document.querySelectorAll(".increase");function showCart(){cartList.style.display="block",setTimeout(function(){cartList.style.opacity="1"},1)}function hideCart(t){cartList.style.opacity="0",setTimeout(function(){cartList.style.display="none"},200)}function puchToLocalStorage(t){localStorage.removeItem("cart"),localStorage.setItem("cart",JSON.stringify(t)),renderCart()}function increaseOfProduct(e){for(let t=0;t<products.length;t++)products[t].title===e.title&&products[t].amount++;puchToLocalStorage(products)}function decreaseOfProduct(e){for(let t=0;t<products.length;t++)products[t].title===e.title&&products[t].amount--;puchToLocalStorage(products)}function addToCart(t){products.push(t),puchToLocalStorage(products)}function totalPrice(t){let e=0;return t.forEach(t=>{e+=t.amount*t.price}),e}function renderCart(){cartList.innerHTML=`
+     <div class="cart__line last__cart__line">
+          <div class="cart__img"></div>
+          <div class="cart__title bold">
+               Total price:
+          </div>
+          <div class="cart__amount"></div>
+          <div class="cart__total bold">
+               ${totalPrice(products)} &dollar;
+          </div>
+     </div>
+     `;var e=cartList.querySelector(".last__cart__line");for(let t=0;t<products.length;t++){var o=document.createElement("div");o.classList.add("cart__line"),o.innerHTML=`
+                    <div class="cart__img">
+                         <img src="${products[t].src}">
+                    </div>
+                    <div class="cart__title">
+                         ${products[t].title}
+                    </div>
+                    <div class="cart__amount">
+                         <div class="cart__btn decrease">-</div>
+                         <div class="amount">
+                              ${products[t].amount}
+                         </div>
+                         <div class="cart__btn increase">+</div>
+                    </div>
+                    <div class="cart__total">
+                         ${+products[t].amount*+products[t].price} &dollar;
+                    </div>`,e.before(o)}}addToCartBtns.forEach((t,e)=>{t.addEventListener("click",function(t){let e;var o={title:(e="DIV"===t.target.tagName?t.path[2]:t.path[3]).querySelector(".product__title p").textContent,price:+e.querySelector(".product__title span").textContent.replace(/[^0-9]/g,""),amount:1,src:e.querySelector(".product__img img").src};let c=!1;for(let t=0;t<products.length;t++)products[t].title===o.title&&(c=!0);(c?increaseOfProduct:addToCart)(o),console.log(products)})}),cartList.addEventListener("click",function(t){t.target.classList.contains("decrease")?1!=t.path[1].querySelector(".amount").textContent.replace(/[^0-9]/g,"")&&decreaseOfProduct({title:t.path[2].querySelector(".cart__title").textContent.trim()}):t.target.classList.contains("increase")&&increaseOfProduct({title:t.path[2].querySelector(".cart__title").textContent.trim()})}),cart.addEventListener("mouseenter",showCart),cart.addEventListener("mouseleave",hideCart),renderCart();let checkMobileCart=0;document.documentElement.offsetWidth<=768&&(cart.removeEventListener("mouseenter",showCart),cart.removeEventListener("mouseleave",hideCart),cart.addEventListener("click",function(){(++checkMobileCart%2==1?showCart:hideCart)()}));const form=document.querySelector("#subscribe form"),input=document.querySelector('#subscribe input[type="text"]');if(form.addEventListener("submit",function(t){t.preventDefault(),0<input.value.length&&-1<input.value.indexOf("@")?(document.querySelector(".email").textContent=input.value,showPopup()):0===input.value.length?alert("Fill in the email field!"):alert("Invalid value!")}),document.documentElement.offsetWidth<=480){const E=document.querySelector('#subscribe input[type="submit"]');E.value=">"}const mobileMenuBtn=document.querySelector(".fa-bars"),mobileMenuClose=document.querySelector(".fa-times"),mobileMenuBg=document.querySelector(".mobile__menu");function openMenu(){console.log("click"),mobileMenuBg.style.display="flex",setTimeout(function(){mobileMenuBg.style.cssText="opacity: 1; z-index: 1001"},1)}function closeMenu(){mobileMenuBg.style.cssText="opacity: 0; z-index: -1",setTimeout(function(){mobileMenuBg.style.display="none"},300)}mobileMenuBtn.addEventListener("click",openMenu),mobileMenuClose.addEventListener("click",closeMenu),mobileMenuBg.addEventListener("click",function(t){t.target&&"A"===t.target.tagName&&closeMenu()}),document.addEventListener("scroll",function(t){t.preventDefault(),50<this.documentElement.scrollTop?document.querySelector("nav").classList.add("nav__border"):document.querySelector("nav").classList.remove("nav__border")});const popup=document.querySelector(".popup"),popupContainer=document.querySelector(".popup__container"),popupClose=document.querySelector(".popup__close");function showPopup(){popup.style.display="flex",setTimeout(()=>{popupContainer.style.cssText="margin-top: 0"},1)}function hidePopup(){popupContainer.style.cssText="margin-top: -100vw",setTimeout(()=>{popup.style.display="none"},350)}popup.addEventListener("click",function(t){t.target!==popupClose&&!t.target.classList.contains("popup")||hidePopup()});

@@ -1,0 +1,32 @@
+{
+  "name": "cafestreet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adilzhexen0v/CafeStreet.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adilzhexen0v/CafeStreet/issues"
+  },
+  "homepage": "https://github.com/adilzhexen0v/CafeStreet#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-useref": "^5.0.0",
+    "gulp-watch": "^5.0.1",
+    "sass": "^1.56.1"
+  },
+  "dependencies": {
+    "gulp-browserify": "^0.5.1",
+    "gulp-commonjs": "^0.1.0"
+  }
+}
