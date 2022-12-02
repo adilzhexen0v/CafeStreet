@@ -1,5 +1,6 @@
 # [Одностраничный сайт](https://adilzhexen0v.github.io/CafeStreet/dist/) кофейни
 - Сайт адаптирован до ширины 320рх
+- Все изображения расформированы по папкам
 - Для компиляции CSS файлов используется [gulp-sass](https://www.npmjs.com/package/gulp-sass). Для запуска используется команда `gulp styles-compile`. 
 ```javascript
      const gulp = require('gulp');
