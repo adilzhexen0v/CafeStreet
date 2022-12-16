@@ -6,7 +6,7 @@ const gulpSourcemaps = require('gulp-sourcemaps');
 const gulpWatch = require('gulp-watch');
 
 gulp.task('styles-compile', () => {
-     return gulp.src('./app/scss/**/*.scss')
+     return gulp.src('./app/scss/*.scss')
      .pipe(gulpSourcemaps.init())
      .pipe(gulpSass().on('error', gulpSass.logError))
      .pipe(gulpSourcemaps.write('./'))
@@ -14,7 +14,7 @@ gulp.task('styles-compile', () => {
 });
 
 gulp.task('watch', () => {
-     gulp.watch('./app/scss/**/*.scss', gulp.series('styles-compile'));
+     gulp.watch('./app/scss/*.scss', gulp.series('styles-compile'));
 });
 
 // concat and minify JS

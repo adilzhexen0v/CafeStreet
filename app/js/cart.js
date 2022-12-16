@@ -76,10 +76,15 @@ function hideCart(e){
      }, 200);
 
 }
-
-cart.addEventListener('mouseenter', showCart);
-
-cart.addEventListener('mouseleave', hideCart);
+let cartOpenChecker = 0;
+cart.addEventListener('click', () => {
+     cartOpenChecker++;
+     if (cartOpenChecker % 2 === 1) {
+          showCart();
+     } else {
+          hideCart();
+     }
+});
 
 
 function puchToLocalStorage(item){
@@ -158,19 +163,3 @@ function renderCart(){
 }
 
 renderCart();
-
-/* Cart in Mobile Version */
-let checkMobileCart = 0;
-
-if (document.documentElement.offsetWidth <= 768) {
-     cart.removeEventListener('mouseenter', showCart);
-     cart.removeEventListener('mouseleave', hideCart);
-     cart.addEventListener('click', function(){
-          checkMobileCart++;
-          if(checkMobileCart % 2 == 1) {
-               showCart();
-          } else {
-               hideCart();
-          }
-     });
-}

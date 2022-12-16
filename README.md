@@ -1,18 +1,25 @@
 # [Одностраничный сайт](https://adilzhexen0v.github.io/CafeStreet/dist/) кофейни
 - Сайт адаптирован до ширины 320рх
+- Все изображения расформированы по папкам
 - Для компиляции CSS файлов используется [gulp-sass](https://www.npmjs.com/package/gulp-sass). Для запуска используется команда `gulp styles-compile`. 
 ```javascript
      const gulp = require('gulp');
      const gulpSass = require('gulp-sass')(require('sass'));
      const gulpSourcemaps = require('gulp-sourcemaps');
-     const gulpWatch = require('gulp-watch');
 
      gulp.task('styles-compile', () => {
-          return gulp.src('./app/scss/**/*.scss')
+          return gulp.src('./app/scss/*.scss')
           .pipe(gulpSourcemaps.init())
           .pipe(gulpSass().on('error', gulpSass.logError))
           .pipe(gulpSourcemaps.write('./'))
           .pipe(gulp.dest('./dist/css/'));
+     });
+
+     // Для отслеживание изменении используются наблиюдатель
+
+     const gulpWatch = require('gulp-watch');
+     gulp.task('watch', () => {
+          gulp.watch('./app/scss/*.scss', gulp.series('styles-compile'));
      });
 ```
 - Для сборки JavaScript файлов используется [gulp-concat](https://www.npmjs.com/package/gulp-concat), а для минификации [gulp-uglify](). Для запуска используется команда `gulp build-js`.

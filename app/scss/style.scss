@@ -1,19 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;1,100;1,200;1,300;1,400;1,700&display=swap');
 
-$black: #000;
-$yellow: #FF912B;
-$lightYellow: #FFCB7C;
-$lightOrange: #F9D9AA;
-$brown: #2F2105;
-$bg: #F6EBDA;
-$lightGray: #7E7D7A;
-$gray: #7E7D7A;
 
-@mixin flex($jc: space-between, $ai: center){
-     display: flex;
-     justify-content: $jc;
-     align-items: $ai;
-}
+@import "static/variables";
+@import "static/mixins";
+
 
 *{
      margin: 0;
@@ -169,6 +159,7 @@ nav{
           div{
                display: flex;
                align-items: center;
+               margin: 0 8px;
           }
           &:first-child{
                border: 0;
@@ -208,6 +199,7 @@ nav{
      }
      &__total{
           @include flex(center, center);
+          width: 48px;
      }
      .bold{
           font-weight: 700;
